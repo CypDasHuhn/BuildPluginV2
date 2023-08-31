@@ -1,8 +1,11 @@
 package de.CypDasHuhn.Build.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.World;
+import org.bukkit.command.BlockCommandSender;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class Command implements CommandExecutor {
     @Override
@@ -15,5 +18,11 @@ public class Command implements CommandExecutor {
                 break;
         }
         return false;
+    }
+
+    public static World getWorld(CommandSender sender) {
+        if (sender instanceof Player) return ((Player) sender).getWorld();
+        else if (sender instanceof BlockCommandSender) return ((BlockCommandSender) sender).getBlock().getWorld();
+        return null;
     }
 }
