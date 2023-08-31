@@ -1,4 +1,4 @@
-package de.CypDasHuhn.PluginPrefix.message;
+package de.CypDasHuhn.Build.message;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

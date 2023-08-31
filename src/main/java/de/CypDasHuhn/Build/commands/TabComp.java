@@ -1,4 +1,4 @@
-package de.CypDasHuhn.PluginPrefix.commands;
+package de.CypDasHuhn.Build.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

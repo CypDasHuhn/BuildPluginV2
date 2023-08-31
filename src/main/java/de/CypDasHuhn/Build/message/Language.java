@@ -1,6 +1,6 @@
-package de.CypDasHuhn.PluginPrefix.message;
+package de.CypDasHuhn.Build.message;
 
-import de.CypDasHuhn.PluginPrefix.CustomFiles;
+import de.CypDasHuhn.Build.CustomFiles;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 

@@ -1,4 +1,4 @@
-package de.CypDasHuhn.PluginPrefix;
+package de.CypDasHuhn.Build;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -10,7 +10,7 @@ import java.io.IOException;
 public class CustomFiles {
     private File file;
     private FileConfiguration customFile;
-    private final String pluginName = "SamplePlugin";
+    private final String pluginName = "BuildPlugin";
     //GetFileConfiguration
     public FileConfiguration gfc(String name, String folder) {
         file = new File(Bukkit.getServer().getPluginManager().getPlugin(pluginName).getDataFolder()+"/"+folder, name+".yml");

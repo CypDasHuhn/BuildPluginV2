@@ -1,7 +1,7 @@
-package de.CypDasHuhn.PluginPrefix.main;
+package de.CypDasHuhn.Build.main;
 
-import de.CypDasHuhn.PluginPrefix.commands.Command;
-import de.CypDasHuhn.PluginPrefix.commands.TabComp;
+import de.CypDasHuhn.Build.commands.Command;
+import de.CypDasHuhn.Build.commands.TabComp;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
