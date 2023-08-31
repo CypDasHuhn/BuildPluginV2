@@ -1,0 +1,8 @@
+name: PluginName
+version: 1.0
+main: de.CypDasHuhn.PluginPrefix.main.Main
+api-version: '1.20'
+
+commands:
+  testcommand:
+    description: testCommand
