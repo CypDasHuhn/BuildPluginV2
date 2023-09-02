@@ -1,5 +1,6 @@
-package de.CypDasHuhn.Build.commands;
+package de.CypDasHuhn.Build.commands.General;
 
+import de.CypDasHuhn.Build.commands.BuildSave;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.command.BlockCommandSender;
@@ -13,6 +14,10 @@ public class Command implements CommandExecutor {
         switch (label) {
             case "testcommand":
                 Bukkit.broadcastMessage("test");
+                break;
+            case "buildsave":
+            case "bs":
+                BuildSave.command(args, sender);
                 break;
             default:
                 break;
