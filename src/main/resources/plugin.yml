@@ -1,6 +1,6 @@
-name: BuildPlugin
+name: BuildAnimatorPlugin
 version: 1.0
-main: de.CypDasHuhn.Build.main.Main
+main: de.CypDasHuhn.BA.main.Main
 api-version: '1.20'
 
 commands:
@@ -9,3 +9,6 @@ commands:
   buildsave:
     description: Save Structures
     aliases: bs
+  buildload:
+    description: Load Structures
+    aliases: bl

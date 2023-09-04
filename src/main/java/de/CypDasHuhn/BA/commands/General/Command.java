@@ -1,6 +1,7 @@
-package de.CypDasHuhn.Build.commands.General;
+package de.CypDasHuhn.BA.commands.General;
 
-import de.CypDasHuhn.Build.commands.BuildSave;
+import de.CypDasHuhn.BA.commands.BuildLoad;
+import de.CypDasHuhn.BA.commands.BuildSave;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.command.BlockCommandSender;
@@ -18,6 +19,10 @@ public class Command implements CommandExecutor {
             case "buildsave":
             case "bs":
                 BuildSave.command(args, sender);
+                break;
+            case "buildload":
+            case "bl":
+                BuildLoad.command(args, sender);
                 break;
             default:
                 break;

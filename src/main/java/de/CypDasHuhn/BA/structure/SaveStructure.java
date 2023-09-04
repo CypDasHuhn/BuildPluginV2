@@ -1,20 +1,18 @@
-package de.CypDasHuhn.Build.structure;
+package de.CypDasHuhn.BA.structure;
 
-import de.CypDasHuhn.Build.CustomFiles;
-import de.CypDasHuhn.Build.main.Main;
+import de.CypDasHuhn.BA.main.Main;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
-import org.bukkit.command.CommandSender;
 import org.bukkit.structure.Structure;
 import org.bukkit.structure.StructureManager;
 
 public class SaveStructure {
 
 
-    public static void saveStructure(String name, int frame, CommandSender sender, Location cornerA, Location cornerB) {
+    public static void save(String name, int frame, Location cornerA, Location cornerB) {
         // STRUCTURE MANAGER
         StructureManager structureManager = Main.serverManager;
-        NamespacedKey key = new NamespacedKey(Main.getPlugin(), "BuildPlugin_"+name+"_"+frame);
+        NamespacedKey key = new NamespacedKey(Main.getPlugin(), Main.pluginName+ "_" + name + "_" + frame);
         //CREATE STRUCTURE
         Structure structure = structureManager.createStructure();
         structure.fill(cornerA, cornerB, false);
