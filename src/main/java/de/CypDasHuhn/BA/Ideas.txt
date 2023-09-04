@@ -1,0 +1,13 @@
+/bs [Name] [Pos1 - 3x] [Pos2 - 3x]   - register Structure
+/bs [Name] [Pos1 - 3x]               - Update Last Frame
+/bs [Name] [Pos1 - 3x] [frame]       - Update Selected Frame
+/bs [Name] [Pos1 - 3x] +             - Update new Frame
+/bs [Name] selected [frame]          - Update Selected Frame using selected Region
+/bs [Name] selected +                - Update new Frame using selected Region
+
+/bl [Name] [Pos1 - 3x]               - Load Animation
+/bl [Name] selected                  - Load Animation using selected Region
+/bl [Name] [Pos1 - 3x] [Frame]       - Load Animation
+/bl [Name] selected [Frame]                 - Load Animation using selected Region
+/bl [Name] [Pos1 - 3x] [mode]              - Load Animation
+/bl [Name] selected                  - Load Animation using selected Region
