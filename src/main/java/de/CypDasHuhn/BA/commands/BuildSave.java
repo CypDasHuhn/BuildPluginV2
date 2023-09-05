@@ -14,11 +14,57 @@ import static java.lang.Integer.parseInt;
 
 public class BuildSave {
     public static boolean command(String[] args, CommandSender sender) {
+
+        String name = null;
+        World world = Command.getWorld(sender);
+        Location cornerA = null;
+        Location cornerB = null;
+        int frame = 0;
+        boolean nextFrame = false;
+        boolean selectedRegion = false;
+
+        String argumentTypes = Command.getArgumentTypes(args);
+        switch (argumentTypes) {
+            case "String int int int int int int" -> {
+                cornerA = cornerFromArguments(args, 1, world);
+                cornerB = cornerFromArguments(args, 4, world);
+            }
+            case "String int int int" -> {
+                cornerA = cornerFromArguments(args, 1, world);
+            }
+            case "String int int int int" -> {
+                cornerA = cornerFromArguments(args, 1, world);
+                frame = parseInt(args[4]);
+            }
+            case "String int int int String" -> {
+                cornerA = cornerFromArguments(args, 1, world);
+                nextFrame = true;
+            }
+            case "String String int" -> {
+                frame = parseInt(args[2]);
+                selectedRegion = true;
+            }
+            case "String String String" -> {
+                nextFrame = true;
+                selectedRegion = true;
+            }
+            default -> {
+                return false;
+            }
+        }
+        name = args[0];
+
+        if (!LoadStructureConfig.structureRegistered(name)) {
+            if (cornerB == null) {
+                return false;
+            }
+        } else {
+
+        }
+
         try {
             if (args.length < 4)  throw new IllegalArgumentException();
             //region Variable Setting
-            String name = args[0];
-            World world = Command.getWorld(sender);
             Location[] corners = {new Location(world, parseInt(args[1]), parseInt(args[2]), parseInt(args[3])), null};
             //endregion
             if (!LoadStructureConfig.structureRegistered(name)) {
@@ -43,6 +89,14 @@ public class BuildSave {
         }
         return true;
     }
+    public static Location cornerFromArguments(String[] args, int position, World world) {
+        return new Location(
+                world,
+                parseInt(args[position]),
+                parseInt(args[position+1]),
+                parseInt(args[position+2])
+        );
+    }
 
     public static boolean illegalSize(Location cornerA, Location cornerB) {
         return (
@@ -50,43 +104,5 @@ public class BuildSave {
             Math.abs(cornerA.getBlockY()-cornerB.getBlockY()) > 48 ||
             Math.abs(cornerA.getBlockZ()-cornerB.getBlockZ()) > 48
         );
-    }
-
-    public static String getArgumentFormat(String[] args) {
-        switch (args.length) {
-            case 7:
-                boolean isNumeric = true;
-                for (int i = 1; i < 7; i++) {
-                    if (!isNumeric(args[i])) isNumeric = false;
-                }
-
-                if (isNumeric) return "register";
-                else return null;
-            case 5:
-
-                return null;
-            case 4:
-
-                return null;
-            case 3:
-
-                return null;
-        }
-        if (args.length == 7) {
-
-        }
-        return null;
-    }
-
-    public static boolean isNumeric(String str) {
-        if (str == null || str.isEmpty()) {
-            return false;
-        }
-        for (char c : str.toCharArray()) {
-            if (!Character.isDigit(c)) {
-                return false;
-            }
-        }
-        return true;
     }
 }

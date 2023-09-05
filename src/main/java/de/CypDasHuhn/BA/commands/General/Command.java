@@ -35,4 +35,39 @@ public class Command implements CommandExecutor {
         else if (sender instanceof BlockCommandSender) return ((BlockCommandSender) sender).getBlock().getWorld();
         return null;
     }
+
+    public static String getArgumentTypes(String[] strings) {
+        if (strings == null || strings.length == 0) {
+            return "";
+        }
+
+        StringBuilder result = new StringBuilder();
+
+        for (String str : strings) {
+            if (isNumeric(str)) {
+                result.append("int ");
+            } else {
+                result.append("String ");
+            }
+        }
+
+        // Remove the trailing space
+        if (result.length() > 0) {
+            result.setLength(result.length() - 1);
+        }
+
+        return result.toString();
+    }
+
+    public static boolean isNumeric(String str) {
+        if (str == null || str.isEmpty()) {
+            return false;
+        }
+        for (char c : str.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
