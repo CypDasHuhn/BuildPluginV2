@@ -5,6 +5,10 @@
 /bs [Name] selected [frame]          - Update Selected Frame using selected Region
 /bs [Name] selected +                - Update new Frame using selected Region
 
+/be [Name] [default] [mode_specification]
+/be [Name] [mode_name] [mode_specification]
+/be [Name] [type]
+
 /bl [Name] [Pos1 - 3x]               - Load Animation
 /bl [Name] selected                  - Load Animation using selected Region
 /bl [Name] [Pos1 - 3x] [Frame]       - Load Animation
