@@ -13,45 +13,15 @@ import org.bukkit.command.CommandSender;
 import static java.lang.Integer.parseInt;
 
 public class BuildSave {
+    private static String name = null;
+    private static World world = Command.getWorld(sender);
+    private static Location cornerA = null;
+    private static Location cornerB = null;
+    private static int frame = 0;
+    private static boolean nextFrame = false;
+    private static boolean selectedRegion = false;
     public static boolean command(String[] args, CommandSender sender) {
 
-        String name = null;
-        World world = Command.getWorld(sender);
-        Location cornerA = null;
-        Location cornerB = null;
-        int frame = 0;
-        boolean nextFrame = false;
-        boolean selectedRegion = false;
-
-        String argumentTypes = Command.getArgumentTypes(args);
-        switch (argumentTypes) {
-            case "String int int int int int int" -> {
-                cornerA = cornerFromArguments(args, 1, world);
-                cornerB = cornerFromArguments(args, 4, world);
-            }
-            case "String int int int" -> {
-                cornerA = cornerFromArguments(args, 1, world);
-            }
-            case "String int int int int" -> {
-                cornerA = cornerFromArguments(args, 1, world);
-                frame = parseInt(args[4]);
-            }
-            case "String int int int String" -> {
-                cornerA = cornerFromArguments(args, 1, world);
-                nextFrame = true;
-            }
-            case "String String int" -> {
-                frame = parseInt(args[2]);
-                selectedRegion = true;
-            }
-            case "String String String" -> {
-                nextFrame = true;
-                selectedRegion = true;
-            }
-            default -> {
-                return false;
-            }
-        }
         name = args[0];
 
         if (!LoadStructureConfig.structureRegistered(name)) {
@@ -89,6 +59,41 @@ public class BuildSave {
         }
         return true;
     }
+
+    public static boolean retrieveArguments(String[] args) {
+        String argumentTypes = Command.getArgumentTypes(args);
+        switch (argumentTypes) {
+            case "String int int int int int int" -> {
+                cornerA = cornerFromArguments(args, 1, world);
+                cornerB = cornerFromArguments(args, 4, world);
+            }
+            case "String int int int" -> {
+                cornerA = cornerFromArguments(args, 1, world);
+            }
+            case "String int int int int" -> {
+                cornerA = cornerFromArguments(args, 1, world);
+                frame = parseInt(args[4]);
+            }
+            case "String int int int String" -> {
+                cornerA = cornerFromArguments(args, 1, world);
+                nextFrame = true;
+            }
+            case "String String int" -> {
+                frame = parseInt(args[2]);
+                selectedRegion = true;
+            }
+            case "String String String" -> {
+                nextFrame = true;
+                selectedRegion = true;
+            }
+            default -> {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public static Location cornerFromArguments(String[] args, int position, World world) {
         return new Location(
                 world,
