@@ -11,7 +11,7 @@
 
 /bl [Name] [Pos1 - 3x]               - Load Animation
 /bl [Name] selected                  - Load Animation using selected Region
-/bl [Name] [Pos1 - 3x] [Frame]       - Load Animation
-/bl [Name] selected [Frame]                 - Load Animation using selected Region
-/bl [Name] [Pos1 - 3x] [mode]              - Load Animation
-/bl [Name] selected                  - Load Animation using selected Region
+/bl [Name] [Pos1 - 3x] [Frame]       - Load Frame
+/bl [Name] selected [Frame]                 - Load Frame using selected Region
+/bl [Name] [Pos1 - 3x] [mode]              - Load Animation with mode
+/bl [Name] selected [mode]                  - Load Animation using selected Region and mode
