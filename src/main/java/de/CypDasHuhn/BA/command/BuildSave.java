@@ -7,8 +7,11 @@ import de.CypDasHuhn.BA.shared.SpigotMethods;
 import de.CypDasHuhn.BA.shared.UtilityMethods;
 import de.CypDasHuhn.BA.structure.SaveStructure;
 import org.bukkit.Location;
+import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
@@ -68,8 +71,22 @@ public class BuildSave {
         SaveStructure.save(name, frame, cornerA, cornerB);
     }
 
-    public static List<String> completer(String[] args) {
+    public static List<String> completer(String[] args, Location location) {
+        List<String> completions = new ArrayList<String>();
+        switch (args.length) {
+            case 0:
+                completions.add("[Name]");
+                break;
+            case 1:
+                completions.add("[Name]");
+                String[] structures = LoadStructureConfig.getStructuresSaved();
+                Collections.addAll(completions, structures);
+                break;
+            case 2:
+                completions.add("select");
 
-        return null;
+                break;
+        }
+        return completions;
     }
 }

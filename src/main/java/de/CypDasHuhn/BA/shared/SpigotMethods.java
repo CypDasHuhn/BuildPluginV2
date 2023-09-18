@@ -35,4 +35,9 @@ public class SpigotMethods {
                         Math.max(cornerA.getZ(), cornerB.getZ()))
         };
     }
+
+    public static String getStringFromLocationAligned() {
+        String s = null;
+        return s;
+    }
 }

@@ -1,4 +1,4 @@
-package de.CypDasHuhn.Skeleton.filemanager;
+package de.CypDasHuhn.BA.filemanager;
 
 import de.CypDasHuhn.BA.main.Main;
 import org.bukkit.Bukkit;
